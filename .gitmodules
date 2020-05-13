@@ -1,0 +1,27 @@
+[submodule "src/libmseed"]
+	path = src/libmseed
+	url = https://github.com/iris-edu/libmseed.git
+[submodule "src/liquid-dsp"]
+	path = src/liquid-dsp
+	url = https://github.com/jgaeddert/liquid-dsp.git
+[submodule "src/ms2rms"]
+	path = src/ms2rms
+	url = https://github.com/Cuda-Chen/ms2rms.git
+[submodule "src/ms2go"]
+	path = src/ms2go
+	url = https://github.com/Cuda-Chen/ms2go.git
+[submodule "src/ms2ampmax"]
+	path = src/ms2ampmax
+	url = https://github.com/Cuda-Chen/ms2ampmax.git
+[submodule "src/ms2ampmax0"]
+	path = src/ms2ampmax0
+	url = https://github.com/Cuda-Chen/ms2ampmax0.git
+[submodule "src/ms2fft"]
+	path = src/ms2fft
+	url = https://github.com/Cuda-Chen/ms2fft.git
+[submodule "src/ms2fft0"]
+	path = src/ms2fft0
+	url = https://github.com/Cuda-Chen/ms2fft0.git
+[submodule "src/ms2filter"]
+	path = src/ms2filter
+	url = https://github.com/Cuda-Chen/ms2filter.git
