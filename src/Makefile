@@ -25,7 +25,7 @@ all:
 	(	echo; \
 		echo "<<<<<<< Compiling stuff: $$i >>>>>>>"; \
 		cd $$i; \
-		${MAKE} all; \
+		${MAKE} static; \
 		cd ..; \
 	); done 
 
