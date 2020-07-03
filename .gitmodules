@@ -1,9 +1,6 @@
 [submodule "src/libmseed"]
 	path = src/libmseed
 	url = https://github.com/iris-edu/libmseed.git
-[submodule "src/liquid-dsp"]
-	path = src/liquid-dsp
-	url = https://github.com/jgaeddert/liquid-dsp.git
 [submodule "src/ms2rms"]
 	path = src/ms2rms
 	url = https://github.com/Cuda-Chen/ms2rms.git
