@@ -22,3 +22,6 @@
 [submodule "src/ms2filter"]
 	path = src/ms2filter
 	url = https://github.com/Cuda-Chen/ms2filter.git
+[submodule "src/liquid-dsp"]
+	path = src/liquid-dsp
+	url = https://github.com/Cuda-Chen/liquid-dsp.git
