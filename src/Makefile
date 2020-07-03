@@ -1,5 +1,4 @@
-DIRS = libmseed \
-ms2ampmax \
+DIRS = ms2ampmax \
 ms2ampmax0 \
 ms2fft \
 ms2fft0 \
@@ -12,7 +11,7 @@ FFTW_VERSION = fftw-3.3.8
 FFTW_TARBALL = ${FFTW_VERSION}.tar.gz
 FFTW_DOWNLOAD_LINK = http://www.fftw.org/${FFTW_TARBALL}
 FFTW_DIR = ${FFTW_VERSION}
-FFTW_LIB_INSTALL_DIR = $(shell pwd)
+FFTW_LIB_INSTALL_DIR = $(shell pwd)/${FFTW_VERSION}
 
 .PHONY: all clean download
 
@@ -25,6 +24,9 @@ all:
 	cd liquid-dsp; \
 	./bootstrap.sh; \
 	./configure --enable-fftoverride; \
+	${MAKE} all; \
+	cd ..; \
+	cd libmseed; \
 	${MAKE} all; \
 	cd ..; \
 	for i in ${DIRS}; do \
