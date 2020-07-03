@@ -6,26 +6,32 @@ ms2fft0 \
 ms2filter \
 ms2go \
 ms2rms
+STATIC_MAKEFILES = Makefile_static
 
-FFTW_TARBALL = fftw-3.3.8.tar.gz
+FFTW_VERSION = fftw-3.3.8
+FFTW_TARBALL = ${FFTW_VERSION}.tar.gz
 FFTW_DOWNLOAD_LINK = http://www.fftw.org/${FFTW_TARBALL}
+FFTW_DIR = ${FFTW_VERSION}
+FFTW_LIB_INSTALL_DIR = $(shell pwd)
 
-.PHONY: all clean download 
+.PHONY: all clean download
 
 all:
-	cd fftw-3.3.8; \
-	./configure; \
+	cd ${FFTW_DIR}; \
+	./configure --prefix=${FFTW_LIB_INSTALL_DIR}; \
 	${MAKE} all; \
+	${MAKE} install; \
 	cd ..; \
 	cd liquid-dsp; \
+	./bootstrap.sh; \
 	./configure --enable-fftoverride; \
 	${MAKE} all; \
 	cd ..; \
 	for i in ${DIRS}; do \
 	(	echo; \
-		echo "<<<<<<< Compiling stuff: $$i >>>>>>>"; \
+		echo "<<<<<<< Compiling program: $$i >>>>>>>"; \
 		cd $$i; \
-		${MAKE} static; \
+		${MAKE} -f ${STATIC_MAKEFILES} FFTW_DIR_NAME=FFTW_DIR; \
 		cd ..; \
 	); done 
 
@@ -34,7 +40,7 @@ download:
 	tar zxvf ${FFTW_TARBALL}; 
 
 clean:
-	cd fftw-3.3.8; \
+	cd ${FFTW_DIR}; \
 	${MAKE} clean; \
 	cd ..; \
 	cd liquid-dsp; \
@@ -42,8 +48,8 @@ clean:
 	cd ..; \
 	for i in ${DIRS}; do \
 	(	echo; \
-		echo "<<<<<<< Cleaning stuff: $$i >>>>>>>"; \
+		echo "<<<<<<< Cleaning program: $$i >>>>>>>"; \
 		cd $$i; \
-		${MAKE} clean; \
+		${MAKE} -f ${STATIC_MAKEFILES} clean; \
 		cd ..; \
 	); done 
