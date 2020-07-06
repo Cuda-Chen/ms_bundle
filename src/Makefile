@@ -13,21 +13,24 @@ FFTW_DOWNLOAD_LINK = http://www.fftw.org/${FFTW_TARBALL}
 FFTW_DIR = ${FFTW_VERSION}
 FFTW_LIB_INSTALL_DIR = $(shell pwd)/${FFTW_VERSION}
 
-.PHONY: all clean download
+.PHONY: all clean download install
 
 all:
 	cd ${FFTW_DIR}; \
 	./configure --prefix=${FFTW_LIB_INSTALL_DIR}; \
 	${MAKE} all; \
 	${MAKE} install; \
+	echo "<<<<<<< FFTW build completed >>>>>>>"; \
 	cd ..; \
 	cd liquid-dsp; \
 	./bootstrap.sh; \
 	./configure --enable-fftoverride; \
 	${MAKE} all; \
+	echo "<<<<<<< liquid-dsp build completed >>>>>>>"; \
 	cd ..; \
 	cd libmseed; \
 	${MAKE} all; \
+	echo "<<<<<<< libmseed build completed >>>>>>>"; \
 	cd ..; \
 	for i in ${DIRS}; do \
 	(	echo; \
@@ -40,6 +43,14 @@ all:
 download:
 	wget ${FFTW_DOWNLOAD_LINK}; \
 	tar zxvf ${FFTW_TARBALL}; 
+
+install:
+	for i in ${DIRS}; do\
+	(	echo; \
+		echo "<<<<<<< Installing program: $$i >>>>>>>"; \
+		cp $$i/$$i ../bin; \
+		echo "<<<<<<< Install program $$i completed >>>>>>>"; \
+	); done
 
 clean:
 	cd ${FFTW_DIR}; \
