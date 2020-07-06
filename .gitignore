@@ -54,3 +54,7 @@ dkms.conf
 # FFTW
 fftw-3.3.8.tar.gz
 fftw-3.3.8/
+
+# Only track README.md in bin/ directory.
+bin/*
+!bin/README.md
