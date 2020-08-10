@@ -5,7 +5,7 @@ Bundle for manipulate with miniSEED data.
 ### Install with Git 
 ```
 ## clone the repository
-$ git clone --recurse-submodules https://github.com/Cuda-Chen/ms_bundle.git
+$ git clone --depth 1 --recurse-submodules https://github.com/Cuda-Chen/ms_bundle.git
 
 ## compile and install
 $ cd src
