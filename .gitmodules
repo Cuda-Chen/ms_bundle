@@ -24,4 +24,7 @@
 	url = https://github.com/Cuda-Chen/ms2filter.git
 [submodule "src/liquid-dsp"]
 	path = src/liquid-dsp
-	url = https://github.com/Cuda-Chen/liquid-dsp.git
+    url = https://github.com/Cuda-Chen/liquid-dsp.git
+[submodule "src/ms2tlen"]
+    path = src/ms2tlen
+    url = https://github.com/Cuda-Chen/ms2tlen.git
