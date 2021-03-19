@@ -4,7 +4,8 @@ ms2fft \
 ms2fft0 \
 ms2filter \
 ms2go \
-ms2rms
+ms2rms \
+ms2tlen
 STATIC_MAKEFILES = Makefile_static
 
 FFTW_VERSION = fftw-3.3.8
