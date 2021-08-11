@@ -37,7 +37,7 @@ all:
 	(	echo; \
 		echo "<<<<<<< Compiling program: $$i >>>>>>>"; \
 		cd $$i; \
-		${MAKE} -f ${STATIC_MAKEFILES} FFTW_DIR_NAME=FFTW_DIR; \
+		${MAKE} -f ${STATIC_MAKEFILES} FFTW_DIR_NAME=${FFTW_DIR}; \
 		cd ..; \
 	); done 
 
