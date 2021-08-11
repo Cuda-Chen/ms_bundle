@@ -2,6 +2,9 @@
 Bundle for manipulate with miniSEED data.
 
 ## Installation
+### Dependencies You Need to Install by Yourself
+- `glibc` (for libc and libm)
+
 ### Install with Git 
 ```
 ## clone the repository
